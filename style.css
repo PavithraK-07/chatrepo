@@ -1,0 +1,16 @@
+function analyzeText() {
+    const text = document.getElementById("textInput").value.toLowerCase();
+    const result = document.getElementById("result");
+
+    const badWords = ["hate", "stupid", "idiot", "kill"];
+
+    let flagged = badWords.some(word => text.includes(word));
+
+    if (flagged) {
+        result.textContent = "⚠️ Warning: Potential harmful content detected.";
+        result.style.color = "red";
+    } else {
+        result.textContent = "✅ Message looks safe.";
+        result.style.color = "green";
+    }
+}
